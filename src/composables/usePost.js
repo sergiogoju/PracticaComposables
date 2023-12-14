@@ -11,7 +11,7 @@ export default function usePost() {
 
     const leerPost = async (id) => {
         const postURL = `https://jsonplaceholder.typicode.com/posts/${id}`;
-        const response = await fetch(postURL);
+        const response = await fetch(postURL); //'${baseURL}/${id}`
         post.value = await response.json();
     };
 
