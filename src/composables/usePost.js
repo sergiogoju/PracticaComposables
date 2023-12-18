@@ -25,18 +25,19 @@ export default function usePost() {
 
 /*
 1. Ok.
-    
+
 2. function FETCH
 
 3. const posts = ref([]);
 Un array vacio del tipo reactivo. Este array puede incluir todos los posts del .json.
 
 4. Ok.
-    
-5. const leerUser = async () => {  
-   const response = await fetch(baseURL)
-   posts.value = await response.json()
-   }
+
+5. 
+const leerUser = async () => {  
+const response = await fetch(baseURL)
+posts.value = await response.json()
+}
 
 Esta función leerUser realiza una llamada asincrona, y no asincrona usando fetch a la API, espera a que la respuesta se convierta en un objeto JSON 
 luego asigna la respuesta a la variable posts.value.
@@ -57,9 +58,9 @@ el valor obtenido es retornado. Si la Promesa es rechazada (el término utilizad
 Ejemplo:
 
 async function getUser(userId) {
- const response = await fetch(`https://api.com/api/user/${userId}`);
- const userData = await response.json();
- return userData.name; // no es necesario await en el return
+const response = await fetch(`https://api.com/api/user/${userId}`);
+const userData = await response.json();
+return userData.name; // no es necesario await en el return
 }
 
 Una función declarada como async significa que el valor de retorno de la función será, "por dentro de javascript", una Promesa. 

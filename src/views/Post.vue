@@ -8,17 +8,27 @@
 
 <script setup>
 import { useRoute } from "vue-router";
+import { watch } from "vue";
 import usePost from "../composables/usePost.js";
 import useUser from "../composables/useUser.js";
+import useResources from "../composables/useResources.js";
 
-const route = useRoute();
+const router = useRoute();
 
-const { post, leerPost } = usePost();
-const { user, leerUser } = useUser();
+// Archivos separados de Post y User
+//leerPost(router.params.id);
+// const { post, leerPost } = usePost();
+// const { user, leerUser } = useUser();
 
-async function infoPost() {
-    await leerPost(route.params.id);
-    await leerUser(post.value.userId);
-}
-infoPost();
+// 4. Archivos junstos, utilizar el mismo composable (useResources)
+// Leer Posts, post y Users
+const { getUno: leerPost, info: post } = useResources("posts");
+const { getUno: leerUser, info: user } = useResources("users");
+
+leerPost(router.params.id);
+watch(
+    () => ({ ...post.value }),
+    () => leerUser(post.value.userId)
+);
+
 </script>
