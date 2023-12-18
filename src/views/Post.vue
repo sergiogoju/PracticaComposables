@@ -20,6 +20,12 @@ const router = useRoute();
 // const { post, leerPost } = usePost();
 // const { user, leerUser } = useUser();
 
+// async function infoPost() {
+//     await leerPost(route.params.id);
+//     await leerUser(post.value.userId);
+// }
+// infoPost();
+
 // 4. Archivos junstos, utilizar el mismo composable (useResources)
 // Leer Posts, post y Users
 const { getUno: leerPost, info: post } = useResources("posts");
