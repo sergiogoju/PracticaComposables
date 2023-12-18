@@ -16,7 +16,9 @@ import useResources from "../composables/useResources.js";
 const router = useRoute();
 
 // Archivos separados de Post y User
+
 //leerPost(router.params.id);
+
 // const { post, leerPost } = usePost();
 // const { user, leerUser } = useUser();
 
